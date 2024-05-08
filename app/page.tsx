@@ -1,4 +1,5 @@
 import { BacksideCabin } from "@/components/backside-cabin";
+import { BacksideCabinController } from "@/components/backside-cabin-controller";
 import { BrakeLeft } from "@/components/brake-left";
 import { BrakeRight } from "@/components/brake-right";
 import { CartComposition } from "@/components/cart-composition";
@@ -8,7 +9,6 @@ import { ConsumptionRight } from "@/components/consumption-right";
 import { FrontCabin } from "@/components/front-cabin";
 import { FrontCabinController } from "@/components/front-cabin-controller";
 import { Management } from "@/components/management";
-import { Speedometer } from "@/components/speedometer";
 import { VoltageHigh } from "@/components/voltage-high";
 import { VoltageLow } from "@/components/voltage-low";
 
@@ -20,7 +20,6 @@ export default function Home() {
       </div>
       <div className="flex flex-col gap-8 p-4">
         <div className="flex grow items-start gap-4">
-          <Speedometer />
           <Management />
           <div className="flex grow flex-col gap-4">
             <ConsumptionRight />
@@ -42,7 +41,7 @@ export default function Home() {
           </div>
           <div className="divide-y rounded-md border">
             <BacksideCabin />
-            <FrontCabinController />
+            <BacksideCabinController />
           </div>
           <CartState />
         </div>

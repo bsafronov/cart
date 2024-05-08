@@ -1,6 +1,11 @@
+"use client";
+
+import { useCart } from "@/lib/store";
 import { Check } from "lucide-react";
 
 export const CartState = () => {
+  const currentSpeed = useCart.use.speed();
+
   return (
     <div className="rounded-md border bg-background">
       <h5 className="border-b p-4 font-semibold">Состояние телеги</h5>
@@ -40,6 +45,10 @@ export const CartState = () => {
         <div className="flex items-center justify-between gap-4 text-sm">
           <span className="text-muted-foreground">Температура TMOT</span>
           <span>21.5°C</span>
+        </div>
+        <div className="flex items-center justify-between gap-4 text-sm">
+          <span className="text-muted-foreground">Скорость</span>
+          <span>{currentSpeed} км/ч</span>
         </div>
       </div>
     </div>

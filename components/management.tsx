@@ -1,11 +1,12 @@
 "use client";
 
 import { transmissionOptions } from "@/lib/consts";
+import { useCart } from "@/lib/store";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
 
 export const Management = () => {
-  const [selected, setSelected] = useState<string | null>(null);
+  const transmission = useCart.use.transmission();
+  const setTransmission = useCart.use.setTransmission();
 
   return (
     <div className="rounded-md border bg-background">
@@ -14,10 +15,10 @@ export const Management = () => {
         {transmissionOptions.map((option) => (
           <button
             key={option}
-            onClick={() => setSelected(option)}
+            onClick={() => setTransmission(option)}
             className={cn(
               "rounded-md px-1 py-0.5 text-center",
-              selected === option && "bg-muted font-semibold",
+              transmission === option && "bg-muted font-semibold",
             )}
           >
             {option}

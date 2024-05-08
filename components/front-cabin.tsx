@@ -1,24 +1,36 @@
+"use client";
+
+import { useCart } from "@/lib/store";
+import { Headlight } from "./headlight";
+
 export const FrontCabin = () => {
+  const HLFLongRight = useCart.use.HLFLongRight();
+  const HLFShortRight = useCart.use.HLFShortRight();
+  const HLFRedRight = useCart.use.HLFRedRight();
+  const turnSignalFRight = useCart.use.turnSignalFRight();
+  const HLFLongLeft = useCart.use.HLFLongLeft();
+  const HLFShortLeft = useCart.use.HLFShortLeft();
+  const HLFRedLeft = useCart.use.HLFRedLeft();
+  const turnSignalFLeft = useCart.use.turnSignalFLeft();
+
   return (
     <div className="flex flex-col justify-end gap-4 rounded-t-md bg-background p-4">
       <h5 className="text-center text-muted-foreground">Вид спереди</h5>
       <div className="flex justify-between gap-4">
-        <div className="flex divide-x rounded-md border">
-          <div className="w-2 rounded-l-md bg-amber-400/10" />
-          <div className="flex gap-1 rounded-r-md bg-muted p-1">
-            <div className="size-4 rounded-full border bg-red-200" />
-            <div className="size-4 rounded-full border bg-background" />
-            <div className="size-4 rounded-full border bg-background" />
-          </div>
-        </div>
-        <div className="flex divide-x rounded-md border">
-          <div className="flex gap-1 rounded-l-md bg-muted p-1">
-            <div className="size-4 rounded-full border bg-background" />
-            <div className="size-4 rounded-full border bg-background" />
-            <div className="size-4 rounded-full border bg-red-200" />
-          </div>
-          <div className="w-2" />
-        </div>
+        <Headlight
+          side="right"
+          turnSignalOn={turnSignalFRight}
+          longOn={HLFLongRight}
+          redOn={HLFRedRight}
+          shortOn={HLFShortRight}
+        />
+        <Headlight
+          side="left"
+          longOn={HLFLongLeft}
+          redOn={HLFRedLeft}
+          shortOn={HLFShortLeft}
+          turnSignalOn={turnSignalFLeft}
+        />
       </div>
     </div>
   );
