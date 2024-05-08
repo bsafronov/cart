@@ -1,3 +1,4 @@
+import { AdminPanel } from "@/components/admin-panel";
 import { BacksideCabin } from "@/components/backside-cabin";
 import { BacksideCabinController } from "@/components/backside-cabin-controller";
 import { BrakeLeft } from "@/components/brake-left";
@@ -45,6 +46,7 @@ export default function Home() {
           </div>
           <CartState />
         </div>
+        <AdminPanel />
       </div>
     </div>
   );
